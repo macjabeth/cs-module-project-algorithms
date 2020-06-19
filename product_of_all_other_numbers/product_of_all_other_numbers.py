@@ -8,6 +8,7 @@ Returns: a List of integers
 [84, 12, 28, 21]
 psf = 84
 '''
+# alternative method: calculate product of all elements and divide each element into the total
 def product_of_all_other_numbers(arr):
     products = [0] * len(arr)
 
