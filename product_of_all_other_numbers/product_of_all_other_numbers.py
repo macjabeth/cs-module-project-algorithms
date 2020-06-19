@@ -2,10 +2,35 @@
 Input: a List of integers
 Returns: a List of integers
 '''
-def product_of_all_other_numbers(arr):
-    # Your code here
 
-    pass
+'''
+[1, 7, 3, 4]
+[84, 12, 28, 21]
+psf = 84
+'''
+# alternative method: calculate product of all elements and divide each element into the total
+def product_of_all_other_numbers(arr):
+    products = [0] * len(arr)
+
+    # For each integer, we find the product of all the integers
+    # before it, storing the total product so far each time
+    product_so_far = 1
+
+    for i in range(len(arr)):
+        products[i] = product_so_far
+        product_so_far *= arr[i]
+
+    # For each integer, we find the product of all the integers
+    # after it. Since each index in products already has the
+    # product of all the integers before it, now we're storing
+    # the total product of all other integers
+    product_so_far = 1
+
+    for i in range(len(arr) - 1, -1, -1):
+        products[i] *= product_so_far
+        product_so_far *= arr[i]
+
+    return products
 
 
 if __name__ == '__main__':
